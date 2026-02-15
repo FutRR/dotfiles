@@ -3,7 +3,7 @@
     "position": "top",
     "modules-left": [
         "hyprland/workspaces",
-        "sway/mode"
+        "hyprland/window"
     ],
     "modules-center": [
         "clock",
@@ -25,6 +25,10 @@
         "persistent-workspaces": {
             "*": 5
         }
+    },
+    "hyprland/window": {
+        "format": "{}",
+        "separate-outputs": true
     },
     "clock": {
         "interval": 1,

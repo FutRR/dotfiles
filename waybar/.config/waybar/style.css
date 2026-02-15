@@ -36,10 +36,8 @@ tooltip label {
     margin: 0 1px;
     background: transparent;
     color: #ffffff;
-    border-left: 1px solid #4b4a4e;
     transition: all 250ms ease-in-out;
     border-radius: 100px;
-
 }
 
 #workspaces button.empty {
@@ -57,6 +55,11 @@ tooltip label {
     background-color: #b6f3c9;
     color: #121212;
     transition: all 250ms ease-in-out;
+}
+
+#window{
+    margin: 0 10px;
+    color: #b6f3c9;
 }
 
 #clock {
