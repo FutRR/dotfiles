@@ -1,0 +1,14 @@
+width=40%
+lines=11
+
+show=drun
+hide_scroll = true
+allow_images = true
+image_size = 25
+prompt=Search...
+normal_window = false
+key_expand=Tab
+
+matching=contains
+insensitive=true
+columns=2
