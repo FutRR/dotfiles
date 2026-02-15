@@ -12,6 +12,7 @@
     "modules-right": [
         "pulseaudio",
         "pulseaudio/slider",
+        "custom/music",
         "bluetooth",
         "network",
         "battery"
@@ -59,6 +60,18 @@
         "max": 100,
         "orientation": "horizontal"
     },
+    "custom/music": {
+        "exec": "/home/fut/dotfiles/waybar/.config/waybar/scripts/music.sh 2>&1",
+        "interval": 2,
+        "format": "{}",
+        "max-length": 50,
+        "escape": true,
+        "tooltip": false,
+        "on-click": "/home/fut/dotfiles/waybar/.config/waybar/scripts/music.sh playpause",
+        // "on-click-right": "/home/fut/dotfiles/waybar/.config/waybar/scripts/music.sh open",
+        "on-scroll-up": "/home/fut/dotfiles/waybar/.config/waybar/scripts/music.sh next",
+        "on-scroll-down": "/home/fut/dotfiles/waybar/.config/waybar/scripts/music.sh prev"
+    },
     "network": {
         "interface": "wlp1s0",
         "format": "{ifname}",
@@ -87,7 +100,7 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-full": "{icon}  {capacity}%",
+        "format-full": "{capacity}% {icon}",
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{icon} {time}",
