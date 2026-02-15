@@ -7,6 +7,7 @@
     ],
     "modules-center": [
         "clock",
+        "user",
         "sway/window"
     ],
     "modules-right": [
@@ -25,6 +26,10 @@
         "persistent-workspaces": {
             "*": 5
         }
+    },
+    "user": {
+        "format": "| ↑ {work_H}hours",
+        "icon": true
     },
     "hyprland/window": {
         "format": "{}",
