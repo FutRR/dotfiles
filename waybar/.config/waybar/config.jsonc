@@ -27,10 +27,6 @@
             "*": 5
         }
     },
-    "user": {
-        "format": "| ↑ {work_H}hours",
-        "icon": true
-    },
     "hyprland/window": {
         "format": "{}",
         "separate-outputs": true
@@ -38,6 +34,12 @@
     "clock": {
         "interval": 1,
         "format": "{:%H %M %S | %A %d %B %Y}"
+    },
+    "user": {
+        "interval": 1,
+        "format": "| ↑ {work_H}:{work_M}:{work_S}",
+        "icon": true
+
     },
     "pulseaudio": {
         "format": "{volume}% {icon}",
@@ -77,7 +79,7 @@
         "escape": true,
         "tooltip": false,
         "on-click": "/home/fut/dotfiles/waybar/.config/waybar/scripts/music.sh playpause",
-        // "on-click-right": "/home/fut/dotfiles/waybar/.config/waybar/scripts/music.sh open",
+        "on-click-right": "/home/fut/dotfiles/waybar/.config/waybar/scripts/music.sh open",
         "on-scroll-up": "/home/fut/dotfiles/waybar/.config/waybar/scripts/music.sh next",
         "on-scroll-down": "/home/fut/dotfiles/waybar/.config/waybar/scripts/music.sh prev"
     },
