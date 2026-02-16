@@ -1,144 +1,114 @@
-/* Color palette
-    --green: #b6f3c9;
-    --lightblue: #82bac9
-    --blue: #4766f4;
-    --darkgrey: #3c3b3e;
-    --lightgrey: #4b4a4e;
-*/
+@import "/home/fut/.cache/wal/colors-waybar.css";
 
+@define-color bg @background;
+@define-color fg @foreground;
+@define-color textcolor @cursor;
 
 * {
-    border: none;
-    border-radius: 0;
-    font-family: "SF Pro Display", "JetBrainsMono Nerd Font Propo";
-    font-size: 13px;
-    margin: 0;
-    padding: 0;
-    min-height: 0;
+  border: none;
+  border-radius: 0;
+  font-family: "SF Pro Display", "JetBrainsMono Nerd Font Propo";
+  font-size: 14px;
+  margin: 0;
+  padding: 1px 0;
+  min-height: 0;
 }
 
 window#waybar {
-    background: transparent;
+  background: @bg;
+  padding-top: 10px;
 }
 
 tooltip {
-    background: rgba(182, 243, 201, 0.604);
-    border-radius: 100px;
-    padding: 0 10px;
+  padding: 0 10px;
 }
 
 tooltip label {
-    color: rgb(0, 0, 0);
+  color: @bg;
 }
 
-#user{
-    margin: 0 10px;
-    color: #b6f3c9;
+#user,
+#window,
+#custom-music,
+#bluetooth,
+#network {
+  margin: 0 10px;
+  color: @color15;
 }
 
 #workspaces button {
-    padding: 0 10px;
-    margin: 0 1px;
-    background: transparent;
-    color: #ffffff;
-    transition: all 250ms ease-in-out;
+  padding: 0 10px;
+  background: transparent;
+  transition: all 250ms ease-in-out;
+  color: @color15;
 }
 
 #workspaces button.empty {
-    color: #4b4a4e;
-    transition: all 250ms ease-in-out;
+  color: @color9;
+  transition: all 250ms ease-in-out;
 }
 
-
 #workspaces button.visible {
-    color: #4766f4;
-    transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
 }
 
 #workspaces button.active {
-    background-color: #b6f3c9;
-    color: #121212;
-    transition: all 250ms ease-in-out;
-}
-
-#window{
-    margin: 0 10px;
-    color: #b6f3c9;
+  color: @bg;
+  background-color: @color15;
+  transition: all 250ms ease-in-out;
 }
 
 #clock {
-    color: #b6f3c9;
-}
-
-#tray{
-    color: #b6f3c9;
+  color: @color15;
 }
 
 #pulseaudio {
-    margin-left: 10px;
-    color: #b6f3c9;
-    padding: 0 10px;
+  margin-left: 10px;
+  padding: 0 10px;
+  color: @color15;
 }
 
 #pulseaudio-slider {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 #pulseaudio-slider slider {
-    min-height: 0px;
-    min-width: 0px;
-    opacity: 0;
-    background-image: none;
-    border: none;
-    box-shadow: none;
+  min-height: 0px;
+  min-width: 0px;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
 }
 
 #pulseaudio-slider trough {
-    min-height: 10px;
-    min-width: 80px;
-    border-radius: 100px;
-    border: 1px solid #b6f3c9;
-    background: transparent;
+  min-height: 10px;
+  min-width: 80px;
+  border-radius: 100px;
+  border: 1px solid @color15;
+  background: transparent;
 }
 
 #pulseaudio-slider highlight {
-    min-width: 10px;
-    border-radius: 10px;
-    background: #b6f3c9;
-}
-
-#custom-music{
-    margin: 0 10px;
-    color: #b6f3c9;
-}
-
-#bluetooth {
-    margin: 0 10px;
-    color: #b6f3c9;
-}
-
-#network {
-    margin: 0 10px;
-    color: #b6f3c9;
+  min-width: 10px;
+  border-radius: 10px;
+  background: @color15;
 }
 
 #battery {
-    color: #b6f3c9;
-    padding: 0 10px;
-    margin-left: 5;
+  padding: 0 10px;
+  color: @color15;
 }
 
 #battery.charging {
-    color: #121212;
-    background-color: #b6f3c9;
+  background-color: @fg;
 }
 
 #battery.warning {
-    color: #121212;
-    background-color: #ffc942;
+  background-color: #ffc942;
 }
 
 #battery.warning:not(.charging) {
-    color: #121212;
-    background-color: #ff7742;
+  color: @color15;
+  background-color: #902f2f;
 }
