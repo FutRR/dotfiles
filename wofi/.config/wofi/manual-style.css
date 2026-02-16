@@ -1,0 +1,77 @@
+/* Color palette
+    --green: #b6f3c9;
+    --lightblue: #82bac9
+    --blue: #4766f4;
+    --darkgrey: #3c3b3e;
+    --lightgrey: #4b4a4e;
+*/
+
+* {
+   font-family: "Roboto", monospace;
+   outline: none;
+}
+
+#window {
+    background: transparent;
+}
+
+#input {
+    transition: all 250ms ease-in-out;
+    margin: 5px;
+    border-radius: 20px;
+    border: 1px solid #82bac9;
+    background: transparent;
+    color: #b6f3c9;
+    box-shadow: none;
+}
+
+#input:focus{
+    outline: none !important;
+}
+
+#inner-box {
+    background-color: #3c3b3e;
+}
+
+#outer-box {
+    margin: 2px;
+    padding: 10px;
+    background: linear-gradient(#3c3b3e, #3c3b3e) padding-box,
+    linear-gradient(to bottom right, #b6f3c9, #4766f4) border-box;
+    border-radius: 20px;
+    border: 2px solid transparent;
+}
+
+#scroll {
+    margin: 5px;
+}
+
+#text {
+    padding: 4px;
+    color: white;
+}
+
+#entry{
+    transition: all 250ms ease-in-out;
+    border: 2px solid #4b4a4e;
+    border-radius: 20px;
+    margin: 5px 10px;
+}
+
+image {
+    padding-left: 5px;
+}
+
+#entry:selected {
+    border: 2px solid #82bac9;
+    background: transparent;
+}
+
+#text:selected {
+    color: #82bac9;
+    background: transparent;
+}
+
+#expander-box{
+    background: transparent;
+}
