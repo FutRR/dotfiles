@@ -73,7 +73,7 @@
     },
     "custom/music": {
         "exec": "/home/fut/dotfiles/waybar/.config/waybar/scripts/music.sh 2>&1",
-        "interval": 2,
+        "interval": 1,
         "format": "{}",
         "max-length": 50,
         "escape": true,
