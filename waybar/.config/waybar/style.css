@@ -42,7 +42,6 @@ tooltip label {
     background: transparent;
     color: #ffffff;
     transition: all 250ms ease-in-out;
-    border-radius: 100px;
 }
 
 #workspaces button.empty {
