@@ -1,28 +1,41 @@
 #!/bin/bash
 
-PLAYERCTL="$(which playerctl 2>/dev/null || echo /usr/bin/playerctl)"
+playerctl=$(which playerctl 2>/dev/null || echo /usr/bin/playerctl)
+player=$($playerctl -l 2>/dev/null | head -n 1)
 
 case "$1" in
     playpause)
-        $PLAYERCTL play-pause 2>/dev/null
+        $playerctl play-pause 2>/dev/null
         ;;
     next)
-        $PLAYERCTL next 2>/dev/null
+        $playerctl next 2>/dev/null
         ;;
     prev)
-        $PLAYERCTL previous 2>/dev/null
+        $playerctl previous 2>/dev/null
         ;;
     *)
-        player=$($PLAYERCTL -l 2>/dev/null | head -n 1)
 
         if [ -n "$player" ]; then
-            artist=$($PLAYERCTL -p "$player" metadata artist 2>/dev/null)
-            title=$($PLAYERCTL -p "$player" metadata title 2>/dev/null)
+            format=$($playerctl -p "$player" metadata --format "{{ artist }} - {{ title }}")
+            status=$($playerctl -p "$player" status)
 
-            if [ -n "$artist" ] || [ -n "$title" ]; then
-                echo " ${artist} - ${title}"
+            case "$status" in
+                Playing)
+                    icon=""
+                    ;;
+                Paused)
+                    icon=""
+                    ;;
+                Stopped)
+                    icon=""
+                    ;;
+                *)
+            esac
+
+            if [ -n "$status" ] && [ -n "$format" ]; then
+                echo "${icon} ${format}"
             else
-                echo " En lecture"
+                echo "En lecture"
             fi
         else
             echo ""
@@ -31,9 +44,4 @@ case "$1" in
 esac
 
 
-    # open)
-    #     url=$("$PLAYERCTL" metadata xesam:url 2>/dev/null)
-    #     if [ -n "$url" ]; then
-    #         xdg-open "$url"
-    #     fi
-    #   ;;
+    
