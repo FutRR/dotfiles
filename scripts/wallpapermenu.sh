@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 
 FOLDER=~/Images/wallpapers/
-SCRIPT=~/dotfiles/scripts/pywal16
+SCRIPT=~/dotfiles/scripts/pywal16.sh
 
 menu() {
-  CHOICE=$(nsxiv -to $FOLDER/*)
-
-    if [ -n "$CHOICE" ]; then
-        wal -i "$CHOICE" -o $SCRIPT
+    if CHOICE=$(nsxiv -to "$FOLDER"/*); then
+        [ -n "$CHOICE" ] && wal -i "$CHOICE" -o "$SCRIPT"
     fi
 }
 
