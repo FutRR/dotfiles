@@ -10,7 +10,6 @@
   font-family: "SF Pro Display", "JetBrainsMono Nerd Font Propo";
   font-size: 14px;
   margin: 0;
-  padding: 1px 0;
   min-height: 0;
 }
 
@@ -101,11 +100,13 @@ tooltip label {
 }
 
 #battery.charging {
-  background-color: @fg;
+  color: @bg;
+  background-color: #66bb66;
 }
 
 #battery.warning {
-  background-color: #ffc942;
+  color: @bg;
+  background-color: #d3aa42;
 }
 
 #battery.warning:not(.charging) {
