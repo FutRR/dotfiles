@@ -7,31 +7,49 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "SF Pro Display", "JetBrainsMono Nerd Font Propo";
+  font-family: "JetBrainsMono Nerd Font Propo";
   font-size: 14px;
+  padding: 0;
   margin: 0;
-  min-height: 0;
+  min-height: 36px;
 }
 
 window#waybar {
   background: @bg;
-  padding-top: 10px;
 }
 
 tooltip {
-  padding: 0 10px;
+  background: @color9;
 }
 
 tooltip label {
-  color: @bg;
+  color: @color15;
 }
 
-#user,
-#window,
-#custom-music,
-#bluetooth,
-#network {
+.modules-left{
+  margin-right: 10px;
+}
+
+.modules-center{
   margin: 0 10px;
+}
+
+.modules-left{
+  margin-left: 10px;
+}
+
+#custom-separator{
+  margin: 0 10px;
+}
+
+#custom-separator,
+#window,
+#clock,
+#custom-weather,
+#pulseaudio,
+#bluetooth,
+#network,
+#battery {
   color: @color15;
 }
 
@@ -44,7 +62,6 @@ tooltip label {
 
 #workspaces button.empty {
   color: @color9;
-  transition: all 250ms ease-in-out;
 }
 
 #workspaces button.visible {
@@ -57,51 +74,18 @@ tooltip label {
   transition: all 250ms ease-in-out;
 }
 
-#clock {
+#custom-music{
   color: @color15;
+  margin-left: 15px;
 }
 
-#pulseaudio {
-  margin-left: 10px;
-  padding: 0 10px;
-  color: @color15;
-}
-
-#pulseaudio-slider {
-  margin-right: 10px;
-}
-
-#pulseaudio-slider slider {
-  min-height: 0px;
-  min-width: 0px;
-  opacity: 0;
-  background-image: none;
-  border: none;
-  box-shadow: none;
-}
-
-#pulseaudio-slider trough {
-  min-height: 10px;
-  min-width: 80px;
-  border-radius: 100px;
-  border: 1px solid @color15;
-  background: transparent;
-}
-
-#pulseaudio-slider highlight {
-  min-width: 10px;
-  border-radius: 10px;
-  background: @color15;
-}
-
-#battery {
-  padding: 0 10px;
-  color: @color15;
+#battery{
+  padding-right: 10px;
 }
 
 #battery.charging {
   color: @bg;
-  background-color: #66bb66;
+  background-color: @color15;
 }
 
 #battery.warning {
