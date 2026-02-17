@@ -1,6 +1,7 @@
 {
   "layer": "top",
   "position": "top",
+  "reload_style_on_change": true,
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock", "sway/window"],
   "modules-right": [
@@ -28,6 +29,9 @@
   },
   "hyprland/window": {
     "format": "{}",
+    "rewrite": {
+        "(.*) - Visual Studio Code": " $1",
+    },
     "separate-outputs": true,
   },
   "clock": {
