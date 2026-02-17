@@ -1,6 +1,6 @@
 #!/bin/bash
 
-battery_level=`acpi | grep -oP '(?<=, )\d+(?=%)'`
+battery_level=$(acpi | grep -oP '(?<=, )\d+(?=%)')
 
 if [ "$battery_level" -le 20 ]
 then
