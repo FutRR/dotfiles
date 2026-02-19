@@ -5,6 +5,8 @@ PLAYERCTL=$(which playerctl 2>/dev/null || echo /usr/bin/playerctl)
 PLAYERS=$($PLAYERCTL -l 2>/dev/null) # list of players
 
 
+
+
 case "$1" in
     playpause)
         $PLAYERCTL play-pause 2>/dev/null
@@ -16,6 +18,8 @@ case "$1" in
         $PLAYERCTL previous 2>/dev/null
         ;;
     *)
+
+        ( [[ ! $($PLAYERCTL -l | grep -q "instance") ]] && echo "" & exit 0 )
 
         for PLAYER in $PLAYERS; do
 

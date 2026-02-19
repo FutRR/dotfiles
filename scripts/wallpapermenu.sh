@@ -16,6 +16,11 @@ case "$#" in
     0) menu;;
     1) if [ "$1" = "-r" ]; then
             RANDOM_WALL=$(find "$FOLDER" -type f -print0 | shuf -z -n 1 | xargs -0 echo)
+
+            if [ -f "$CACHE_FILE" ] && cmp -s "$RANDOM_WALL" "$CACHE_FILE"; then
+                menu
+            fi
+
             cp "$RANDOM_WALL" "$CACHE_FILE" && wal -i "$RANDOM_WALL" -o "$SCRIPT"
        else
            wal -i "$1" -o "$SCRIPT"
