@@ -84,7 +84,7 @@ tooltip label {
 }
 
 #battery{
-  padding: 0 10px;
+  padding-right: 5px;
 }
 
 #battery.charging {
