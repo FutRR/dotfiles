@@ -11,10 +11,10 @@ if [ -f "$cache_file" ] && [ -n "$(cat "$cache_file")" ]; then
   fi
 fi
 
-weather=$(curl -s "https://wttr.in/Strasbourg?%C%20|+%t%0A" 2>/dev/null)
+weather=$(curl -s https://wttr.in/Strasbourg?format="%l:+%C+%t\n" 2>/dev/null)
 if [ -n "$weather" ]; then
   echo "$weather" > "$cache_file"
-  echo "$weather"
+  cat "$cache_file"
 else
   if [ -f "$cache_file" ] && [ -n "$(cat "$cache_file")" ]; then
     cat "$cache_file"
