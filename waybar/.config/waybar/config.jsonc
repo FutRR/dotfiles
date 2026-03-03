@@ -16,7 +16,7 @@
     "battery",
   ],
   "custom/separator": {
-    "format": "|",
+    "format": " ",
     "interval": "once",
     "tooltip": false,
   },
@@ -78,7 +78,7 @@
     "format": "{ifname}",
     "format-wifi": "",
     "format-ethernet": "{ipaddr}/{cidr} 󰊗",
-    "format-disconnected": "", //An empty format will hide the module.
+    "format-disconnected": "o", //An empty format will hide the module.
     "tooltip-format": "{essid} ({signalStrength}%)",
     "on-click": "nm-connection-editor",
     "max-length": 50,

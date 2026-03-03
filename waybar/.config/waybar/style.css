@@ -39,7 +39,7 @@ tooltip label {
 }
 
 #custom-separator{
-  margin: 0 10px;
+  margin: 0 5px;
 }
 
 #custom-separator,
@@ -84,7 +84,7 @@ tooltip label {
 }
 
 #battery{
-  padding-right: 5px;
+  padding: 0 5px;
 }
 
 #battery.charging {
