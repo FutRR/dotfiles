@@ -3,9 +3,15 @@
 export DISPLAY=:0
 export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 
-battery_level=$(/usr/bin/acpi | grep -oP '(?<=, )\d+(?=%)')
+battery_level=$(/usr/bin/acpi | grep -o '[0-9]\+%' | tr -d '%')
 cache_file="/tmp/battery_level"
 max_age=300
+
+isCharging=$(acpi -b | grep -q "Charging")
+if [ -n "$isCharging" ]; then
+  # If the battery is charging, we can skip sending notifications
+  exit 0
+fi
 
 send(){
 
@@ -44,16 +50,11 @@ if [[ -z "$battery_level" || ! "$battery_level" =~ ^[0-9]+$ ]]; then
   exit 1
 fi
 
-# Check if cache file exists and is not empty, then calculate its age
-if [ -f "$cache_file" ] && [ -n "$(cat "$cache_file")" ]; then
-  age=$(( $(date +%s) - $(stat -c %Y "$cache_file") ))
-fi
-
 # Send notifications based on battery level
 if [ "$battery_level" -le 10 ]
 then
   send "Battery critical. Battery level is ${battery_level}%!" "$battery_level"
-elif [ "$battery_level" -le 40 ]
+elif [ "$battery_level" -le 30 ]
 then
   send "Battery low. Battery level is ${battery_level}%!" "$battery_level"
 fi
