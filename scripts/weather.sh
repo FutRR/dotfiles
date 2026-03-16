@@ -1,24 +1,27 @@
 #!/usr/bin/env bash
 
-cache_file="/tmp/weather_strasbourg"
+cache="/tmp/waybar_weather"
+lock="/tmp/waybar_weather.lock"
 max_age=1800
 
-if [ -f "$cache_file" ] && [ -n "$(cat "$cache_file")" ]; then
-  age=$(( $(date +%s) - $(stat -c %Y "$cache_file") ))
-  if [ "$age" -lt "$max_age" ]; then
-    cat "$cache_file"
-    exit 0
-  fi
+exec 200>"$lock"
+flock -n 200 || { cat "$cache" 2>/dev/null; exit 0; }
+
+now=$(date +%s)
+
+if [ -f "$cache" ]; then
+    age=$((now - $(stat -c %Y "$cache")))
+else
+    age=$max_age
 fi
 
-weather=$(curl -H "Accept-Language: fr" https://wttr.in/Strasbourg?format="%l:+%C+%t\n")
-if [ -n "$weather" ]; then
-  echo "$weather" > "$cache_file"
-  cat "$cache_file"
-else
-  if [ -f "$cache_file" ] && [ -n "$(cat "$cache_file")" ]; then
-    cat "$cache_file"
-  else
-    echo "Weather data unavailable"
-  fi
+if [ "$age" -ge "$max_age" ]; then
+    weather=$(curl -s -A "waybar-weather" -H "Accept-Language: fr" \
+    "https://wttr.in/Strasbourg?format=%l:+%C+%t")
+
+    if [[ -n "$weather" && "$weather" != *"processed"* ]]; then
+        echo "$weather" > "$cache"
+    fi
 fi
+
+cat "$cache" 2>/dev/null || echo "Weather unavailable"
