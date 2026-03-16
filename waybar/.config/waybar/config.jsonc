@@ -60,7 +60,7 @@
   },
   "custom/weather": {
     "exec": "/home/fut/dotfiles/scripts/weather.sh",
-    "interval": 1800,
+    "interval": 60,
   },
   "pulseaudio": {
     "format": "{volume}% {icon}",
@@ -79,7 +79,8 @@
       "default": ["", ""],
     },
     "scroll-step": 1,
-    "on-click": "pavucontrol",
+    "on-click": "/home/fut/dotfiles/scripts/audio_output.sh",
+    "on-click-right": "pavucontrol",
     "ignored-sinks": ["Easy Effects Sink"],
   },
   "custom/music": {
