@@ -43,11 +43,11 @@
       "weeks-pos": "right",
       "on-scroll": 1,
       "format": {
-        "months": "<span color='#ffead3'><b>{}</b></span>",
-        "days": "<span color='#ecc6d9'><b>{}</b></span>",
-        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+        "months": "<span color='#ffffff'><b>{}</b></span>",
+        "days": "<span color='#ffffff'><b>{}</b></span>",
+        "weeks": "<span color='#ffffff'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffffff'><b>{}</b></span>",
+        "today": "<span color='#ffffff'><b><u>{}</u></b></span>",
       },
     },
     "actions": {
@@ -60,6 +60,7 @@
   },
   "custom/weather": {
     "exec": "/home/fut/dotfiles/scripts/weather.sh",
+    "max-length": 30,
     "interval": 60,
   },
   "pulseaudio": {
