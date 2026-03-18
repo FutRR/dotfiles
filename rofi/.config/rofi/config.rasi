@@ -5,7 +5,7 @@ configuration {
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
 /*	fixed-num-lines: true;*/
-	show-icons: false;
+	show-icons: true;
 /*	preview-cmd: ;*/
 /*	on-selection-changed: ;*/
 /*	on-mode-changed: ;*/
@@ -165,6 +165,10 @@ configuration {
       directories-first: true;
       sorting-method:    "name";
   }
+}
+
+prompt{
+    enabled: false;
 }
 
 @import "~/.cache/wal/colors-rofi-dark"
