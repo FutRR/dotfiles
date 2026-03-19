@@ -1,10 +1,5 @@
 @import "~/.cache/wal/colors-rofi-dark"
 
-*{
-    padding: 0;
-    margin: 0;
-}
-
 window {
     location: northeast;
     anchor: northeast;
