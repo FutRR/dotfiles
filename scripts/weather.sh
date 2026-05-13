@@ -17,7 +17,7 @@ fi
 
 if [ "$age" -ge "$max_age" ]; then
     weather=$(curl -s --fail --max-time 10 -A "waybar-weather" -H "Accept-Language: fr" \
-    "https://wttr.in/Strasbourg?format=%l:+%C+%t")
+    "https://wttr.in/Strasbourg?format=%C+%t")
 curl_exit=$?
 
 if [[ $curl_exit -ne 0 ]]; then
