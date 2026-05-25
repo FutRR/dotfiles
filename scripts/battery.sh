@@ -14,6 +14,7 @@ fi
 send() {
   local message="$1"
   local current_level="$2"
+  local urgency="$3"
   local age=""
   local cached_level=""
 
@@ -28,19 +29,19 @@ send() {
     exit 0
   elif [[ -n "$message" ]]; then
     echo "${current_level}%" > "$cache_file"
-    /usr/bin/notify-send "$message"
+    /usr/bin/notify-send -u "$urgency" "$message"
   else
     echo "Battery data unavailable"
   fi
 }
 
 if [[ -z "$battery_level" || ! "$battery_level" =~ ^[0-9]+$ ]]; then
-  send "Battery data unavailable"
+  send "Battery data unavailable" "$battery_level" "critical"
   exit 1
 fi
 
 if [ "$battery_level" -le 10 ]; then
-  send "Battery critical. Battery level is ${battery_level}%!" "$battery_level"
+  send "Battery critical. Battery level is ${battery_level}%!" "$battery_level" "critical"
 elif [ "$battery_level" -le 40 ]; then
-  send "Battery low. Battery level is ${battery_level}%!" "$battery_level"
+  send "Battery low. Battery level is ${battery_level}%!" "$battery_level" "low"
 fi
