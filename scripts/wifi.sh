@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-network=$(nmcli -t -f SSID device wifi list | rofi -dmenu -i)
+network=$(nmcli -t -f SSID device wifi list | rofi -dmenu -i -mesg "Sélectionner un réseau Wi-Fi")
 
 password=$(printf '\n' | rofi -dmenu -password -mesg "Entrer le mot de passe")
 
