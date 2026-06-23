@@ -2,12 +2,20 @@
 
 chosen=$(echo -e "[Cancel]\nLogout\nShutdown\nReboot\nSuspend" | rofi -dmenu -i  -theme ~/.config/rofi/power.rasi)
 
-if [[ $chosen = "Logout" ]]; then
-	jwm -exit
-elif [[ $chosen = "Shutdown" ]]; then
-	shutdown now
-elif [[ $chosen = "Reboot" ]]; then
-	shutdown -r now
-elif [[ $chosen = "Suspend" ]]; then
-	hyprlock
-fi
+case $chosen in
+	"Cancel")
+		exit 0
+		;;
+	"Logout")
+		jwm -exit
+		;;
+	"Shutdown")
+		shutdown now
+		;;
+	"Reboot")
+		shutdown -r now
+		;;
+	"Suspend")
+		hyprlock
+		;;
+esac
