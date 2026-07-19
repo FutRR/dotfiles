@@ -2,6 +2,10 @@
 
 network=$(nmcli -t -f SSID device wifi list | rofi -dmenu -i -mesg "Sélectionner un réseau Wi-Fi")
 
+if [ -z "$network" ]; then
+  exit 1
+fi
+
 password=$(printf '\n' | rofi -dmenu -password -mesg "Entrer le mot de passe")
 
 if [ -n "$network" ] && [ -n "$password" ]; then
