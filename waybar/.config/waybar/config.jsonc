@@ -60,6 +60,7 @@
   },
   "custom/weather": {
     "exec": "/home/fut/dotfiles/scripts/weather.sh",
+    "on-click": "/home/fut/dotfiles/scripts/weather.sh location",
     "max-length": 40,
     "interval": 60,
   },
@@ -85,7 +86,7 @@
     "ignored-sinks": ["Easy Effects Sink"],
   },
   "custom/music": {
-    "exec": "/home/fut/dotfiles/scripts/music.sh 2>&1",
+    "exec": "/home/fut/dotfiles/scripts/music.sh",
     "interval": 1,
     "format": "{}",
     "max-length": 30,
@@ -93,8 +94,8 @@
     "tooltip": false,
     "on-click": "/home/fut/dotfiles/scripts/music.sh playpause",
     "on-click-right": "/home/fut/dotfiles/scripts/music.sh open",
-    "on-scroll-up": "/home/fut/dotfiles/scripts/music.sh next",
-    "on-scroll-down": "/home/fut/dotfiles/scripts/music.sh prev",
+    "on-scroll-right": "/home/fut/dotfiles/scripts/music.sh next",
+    "on-scroll-left": "/home/fut/dotfiles/scripts/music.sh prev",
   },
   "network": {
     "interface": "wlp1s0",
