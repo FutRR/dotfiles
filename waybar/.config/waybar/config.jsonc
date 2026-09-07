@@ -118,18 +118,16 @@
     "on-click": "blueman-manager",
   },
   "battery": {
-    "interval": 2,
+    "interval": 10,
     "states": {
-      // "good": 95,
       "warning": 30,
       "critical": 15,
     },
+    "full-at-plugged": true,
     "format": "{capacity}% {icon}",
     "format-full": "{capacity}% {icon}",
     "format-charging": "{capacity}% ",
     "format-plugged": "{capacity}% ",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
     "format-icons": ["", "", "", "", ""],
     "on-click": "/home/fut/dotfiles/scripts/power.sh",
   },
