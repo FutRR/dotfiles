@@ -132,6 +132,11 @@ tooltip label {
     background-color: #b6f3c9;
 }
 
+#battery.good {
+    color: #121212;
+    background-color: #b6f3c9;
+}
+
 #battery.warning {
     color: #121212;
     background-color: #ffc942;
@@ -140,4 +145,9 @@ tooltip label {
 #battery.warning:not(.charging) {
     color: #121212;
     background-color: #ff7742;
+}
+
+#battery.critical {
+    color: #121212;
+    background-color: #dc1200;
 }
