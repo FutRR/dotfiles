@@ -104,5 +104,5 @@ tooltip label {
 
 #battery.critical {
   color: @bg;
-  background-color: #dc1200;
+  background-color: #7e2e27;
 }
